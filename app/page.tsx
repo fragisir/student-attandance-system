@@ -50,15 +50,6 @@ export default function Home() {
             <QrCode className="w-5 h-5 text-primary" />
             <span>スキャンして出席開始</span>
           </div>
-          
-          <div className="pt-6 border-t border-slate-200/60 dark:border-slate-800">
-            <Link 
-              href="/attendance"
-              className="text-sm md:text-base font-bold text-slate-400 hover:text-primary transition-all hover:underline underline-offset-4"
-            >
-              出席記録を表示
-            </Link>
-          </div>
         </div>
       </div>
     </main>
