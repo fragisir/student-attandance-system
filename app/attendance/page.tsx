@@ -57,74 +57,74 @@ export default function AttendancePage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 p-4 md:p-8">
-      <div className="max-w-6xl mx-auto space-y-6">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 p-4 md:p-8 lg:p-12">
+      <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <Link 
               href="/"
-              className="p-2 bg-white dark:bg-slate-900 rounded-lg shadow-sm hover:text-primary transition-colors border border-slate-200 dark:border-slate-800"
+              className="p-3 bg-white dark:bg-slate-900 rounded-2xl shadow-sm hover:text-primary transition-all border border-slate-200 dark:border-slate-800 hover:scale-105"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <ArrowLeft className="w-6 h-6" />
             </Link>
-            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">出席記録</h1>
+            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">出席記録</h1>
           </div>
           
           <div className="flex items-center gap-2">
             <button 
               onClick={clearRecords}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-600 bg-red-50 hover:bg-red-100 rounded-lg transition-colors border border-red-100"
+              className="flex items-center gap-2.5 px-6 py-3 text-sm md:text-base font-bold text-red-600 bg-red-50 hover:bg-red-100 rounded-2xl transition-all border border-red-100/50 shadow-sm"
             >
-              <Trash2 className="w-4 h-4" />
+              <Trash2 className="w-5 h-5" />
               すべて削除
             </button>
           </div>
         </div>
 
         {/* Filters Card */}
-        <div className="glass p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
-              <User className="w-3 h-3" /> 学籍番号
+        <div className="glass p-6 md:p-8 rounded-[2rem] shadow-sm border border-slate-200 dark:border-slate-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-end">
+          <div className="space-y-2.5">
+            <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2 px-1">
+              <User className="w-4 h-4 text-primary" /> 学籍番号
             </label>
             <input 
               type="text"
               placeholder="学籍番号で検索..."
               value={searchStudent}
               onChange={(e) => setSearchStudent(e.target.value)}
-              className="w-full px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+              className="w-full px-5 py-3.5 bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all font-medium text-lg"
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
-              <School className="w-3 h-3" /> クラス
+          <div className="space-y-2.5">
+            <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2 px-1">
+              <School className="w-4 h-4 text-primary" /> クラス
             </label>
             <input 
               type="text"
               placeholder="クラスで検索..."
               value={searchClass}
               onChange={(e) => setSearchClass(e.target.value)}
-              className="w-full px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+              className="w-full px-5 py-3.5 bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all font-medium text-lg"
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
-              <Calendar className="w-3 h-3" /> 日付
+          <div className="space-y-2.5">
+            <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2 px-1">
+              <Calendar className="w-4 h-4 text-primary" /> 日付
             </label>
             <input 
               type="date"
               value={searchDate}
               onChange={(e) => setSearchDate(e.target.value)}
-              className="w-full px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+              className="w-full px-5 py-3.5 bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all font-medium text-lg"
             />
           </div>
           <button 
             onClick={clearFilters}
-            className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="flex items-center justify-center gap-2.5 px-6 py-4 text-sm md:text-base font-bold text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all bg-slate-100 dark:bg-slate-800 rounded-2xl"
           >
-            <FilterX className="w-4 h-4" />
-            フィルターをクリア
+            <FilterX className="w-5 h-5" />
+            クリア
           </button>
         </div>
 
